@@ -32,7 +32,7 @@ int main(void) {
 	// Dismiss some values
 	for (i = 0; i < 2; i++)
 		freqdata[i] = 0.00;
-	for (i = 80; i < ECGBIN_LENGTH; i++)
+	for (i = 60; i < ECGBIN_LENGTH; i++)
 		freqdata[i] = 0.00;
 
 	// Freqdata contains frequency domain data from timedata with some values dismissed
@@ -44,7 +44,7 @@ int main(void) {
 
 	ofp = fopen("result.csv", "w");
 	fprintf(ofp, "Original, Transformed, Inverse-Transformed\r\n");
-	printf("Original\tTransformed\tInverse-Transformed\r\n");
+	printf("Original\tTransformed\tModified-Transformed\tInverse-Transformed\r\n");
 
 	for (i = 0; i < ECGBIN_LENGTH; i++) {
 		printf("%f\t%f\t%f\t%f\r\n", ecgdata[i], timedata[i], modfreqdata[i], freqdata[i]); 
